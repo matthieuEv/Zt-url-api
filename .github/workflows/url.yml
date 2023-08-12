@@ -32,6 +32,11 @@ jobs:
       run: |
         URL=$(cat url.txt)
         echo "{\"url\": \"$URL\"}" > url.json
+    - name: Create second page
+      run: |
+        mkdir -p ./goto
+        cd ./goto
+        echo '<!DOCTYPE html><html><head><title>Redirection</title></head><body><script>window.location.href = "'$(cat ../url.txt)'";</script></body></html>' > index.html
     - name: Create HTML file
       run: |
         echo '<!DOCTYPE html><html><head><title>Accès aux Données JSON</title></head><body><p>Pour accéder aux données JSON, <a href="url.json" target="_blank">cliquez ici</a>.</p></body></html>' > index.html
