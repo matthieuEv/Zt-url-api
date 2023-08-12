@@ -1,15 +1,33 @@
 <p align="center">
-  <img src="favicon.png" alt="Logo" width="32" height="32">
+  <a href="favicon.png" target="_blank">
+    <img src="favicon.png" alt="Logo" width="32" height="32">
+  </a>
 </p>
 
-![GitHub deployments](https://img.shields.io/github/deployments/matthieuEv/Zt-url-api/github-pages?style=for-the-badge)
-![Static Badge](https://img.shields.io/badge/License-GNU_v3-blue?style=for-the-badge&link=https%3A%2F%2Fwww.gnu.org%2Flicenses%2Fgpl-3.0.fr.html)
-![Static Badge](https://img.shields.io/badge/Link-blue?style=for-the-badge&link=https%3A%2F%2Fmatthieuev.github.io%2FZt-url-api%2Furl.json)
+<p>
+  <a href="https://matthieuEv.github.io/Zt-url-api/url.json" target="_blank" style="cursor: pointer;">
+    <img src="https://img.shields.io/badge/Link-blue?style=for-the-badge"
+         alt="Link"
+         onclick="window.open('https://matthieuev.github.io/Zt-url-api/url.json', '_blank');">
+  </a>
+  
+  <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html" target="_blank" style="cursor: pointer;">
+    <img src="https://img.shields.io/badge/License-GNU_v3-blue?style=for-the-badge"
+         alt="GNU v3 License"
+         onclick="window.open('https://www.gnu.org/licenses/gpl-3.0.fr.html', '_blank');">
+  </a>
+  
+  <a href="https://github.com/matthieuEv/Zt-url-api/deployments/activity_log?environment=github-pages" target="_blank" style="cursor: pointer;">
+    <img src="https://img.shields.io/github/deployments/matthieuEv/Zt-url-api/github-pages?style=for-the-badge"
+         alt="GitHub deployments"
+         onclick="window.open('https://github.com/matthieuEv/Zt-url-api/deployments/activity_log?environment=github-pages', '_blank');">
+  </a>
+</p>
 
 # Zt-url-api
 
-This repository contains the source code for Zt-url-api. It allows to have the new url of Zone-Telechargement automatically if it has been changed. 
+This repository contains the source code for Zt-url-api. It allows having the new URL of Zone-Telechargement automatically if it has been changed.
 
-The url is accessible [here](https://matthieuev.github.io/Zt-url-api/url.json).
+The URL is accessible [here](https://matthieuev.github.io/Zt-url-api/url.json).
 
 The link is automatically updated every **24 hours**.
