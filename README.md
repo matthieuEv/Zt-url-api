@@ -28,6 +28,8 @@
 
 This repository contains the source code for Zt-url-api. It allows having the new URL of Zone-Telechargement automatically if it has been changed.
 
-The URL is accessible [here](https://matthieuev.github.io/Zt-url-api/url.json).
+The URL for the API is accessible [here](https://matthieuev.github.io/Zt-url-api/url.json).
+
+There is also this url you can use for your shortcuts: https://matthieuev.github.io/Zt-url-api/goto
 
 The link is automatically updated every **24 hours**.
