@@ -1,0 +1,42 @@
+name: '🌐 Get url and deploy API'
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  Get-url-and-deploy:
+    name: Get url and deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4
+    - name: Run Python script
+      run: |
+        OUTPUT=$(python -c 'import requests; from bs4 import BeautifulSoup; print("https://www."+BeautifulSoup(requests.get("https://t.me/ZT_officiel").text, "html.parser").find("div", class_="tgme_page_title").text.lower().replace(" ", "").replace("\n", ""))')
+        echo "Output : $OUTPUT" 
+        echo $OUTPUT > url.txt
+    - name: read file
+      run: |
+        cat url.txt    
+    - name: Create JSON file
+      run: |
+        URL=$(cat url.txt)
+        echo "{\"url\": \"$URL\"}" > url.json
+    - name: Create HTML file
+      run: |
+        echo '<!DOCTYPE html><html><head><title>Accès aux Données JSON</title></head><body><p>Pour accéder aux données JSON, <a href="url.json" target="_blank">cliquez ici</a>.</p></body></html>' > index.html
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: gh-pages
+        folder: .
