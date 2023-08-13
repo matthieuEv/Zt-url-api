@@ -31,7 +31,9 @@ jobs:
     - name: Create JSON file
       run: |
         URL=$(cat url.txt)
-        echo "{\"url\": \"$URL\"}" > url.json
+        TIMESTAMP=$(date +'%d-%m-%Y %H:%M:%S')
+        echo "{\"url\": \"$URL\", \"timestamp\": \"$TIMESTAMP\"}" > url.json
+      
     - name: Create second page
       run: |
         mkdir -p ./goto
