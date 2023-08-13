@@ -13,37 +13,59 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+    
     - name: Install dependencies
       run: |
         pip install requests beautifulsoup4
+        sudo apt install -y jq
+        jq --version
+    
     - name: Run Python script
       run: |
         OUTPUT=$(python -c 'import requests; from bs4 import BeautifulSoup; print("https://www."+BeautifulSoup(requests.get("https://t.me/ZT_officiel").text, "html.parser").find("div", class_="tgme_page_title").text.lower().replace(" ", "").replace("\n", ""))')
         echo "Output : $OUTPUT" 
         echo $OUTPUT > url.txt
+    
     - name: read file
       run: |
         cat url.txt    
+    
     - name: Create JSON file
       run: |
         URL=$(cat url.txt)
         TIMESTAMP=$(date +'%d-%m-%Y %H:%M:%S')
         echo "{\"url\": \"$URL\", \"timestamp\": \"$TIMESTAMP\"}" > url.json
-      
+    
     - name: Create second page
       run: |
         mkdir -p ./goto
         cd ./goto
         echo '<!DOCTYPE html><html><head><title>Redirection</title></head><body><script>window.location.href = "'$(cat ../url.txt)'";</script></body></html>' > index.html
+    
     - name: Create HTML file
       run: |
         echo '<!DOCTYPE html><html><head><title>Accès aux Données JSON</title></head><body><p>Pour accéder aux données JSON, <a href="url.json" target="_blank">cliquez ici</a>.</p></body></html>' > index.html
+    
+    - name: Check if URL has changed
+      id: check_url
+      run: |
+        URL=$(cat url.txt)
+        OLD_URL=$(curl -s https://matthieuev.github.io/Zt-url-api/url.json | jq -r '.url')
+        if [ "$URL" == "$OLD_URL" ]; then
+          echo "::set-output name=changed::false"
+        else
+          echo "::set-output name=changed::true"
+        fi
+    
     - name: Deploy to GitHub Pages
+      if: steps.check_url.outputs.changed == 'true'
       uses: JamesIves/github-pages-deploy-action@4.1.5
       with:
         branch: gh-pages
         folder: .
+      

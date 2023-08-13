@@ -32,4 +32,4 @@ The URL for the API is accessible [here](https://matthieuev.github.io/Zt-url-api
 
 There is also this url you can use for your shortcuts: https://matthieuev.github.io/Zt-url-api/goto
 
-The link is automatically updated every **24 hours**.
+The link is automatically updated at 0h UTC+0 only if the link updated.
