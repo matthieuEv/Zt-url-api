@@ -1,6 +1,6 @@
 <p align="center">
   <a href="favicon.png" target="_blank">
-    <img src="favicon.png" alt="Logo" width="32" height="32">
+    <img src="favicon.png" alt="Logo" width="128" height="128">
   </a>
 </p>
 
