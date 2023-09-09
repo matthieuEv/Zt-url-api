@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="favicon.png" target="_blank">
-    <img src="favicon.png" alt="Logo" width="32" height="32">
+  <a href="icon.png" target="_blank">
+    <img src="icon.png" alt="Logo" width="128" height="128">
   </a>
 </p>
 
@@ -32,4 +32,4 @@ The URL for the API is accessible [here](https://matthieuev.github.io/Zt-url-api
 
 There is also this url you can use for your shortcuts: https://matthieuev.github.io/Zt-url-api/goto
 
-The link is automatically updated every **24 hours**.
+The link is automatically updated at 0h UTC+0 only if the link updated.
