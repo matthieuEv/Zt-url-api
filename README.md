@@ -1,3 +1,4 @@
+This repository is made for educational purposes only. It should not be used for any illegal activities. I do not condone or support the use of this repository for any illegal purposes.
 <p align="center">
   <a href="icon.png" target="_blank">
     <img src="icon.png" alt="Logo" width="128" height="128">
