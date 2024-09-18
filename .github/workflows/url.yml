@@ -34,6 +34,11 @@ jobs:
     - name: read file
       run: |
         cat url.txt    
+        
+    - name: Download favicon
+      run: |
+        URL=$(cat url.txt)
+        wget "${URL}/templates/zone/images/favicon.ico" -O favicon.ico
     
     - name: Create JSON file
       run: |
